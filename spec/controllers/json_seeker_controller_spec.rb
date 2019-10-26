@@ -29,9 +29,14 @@ RSpec.describe JsonSeekerController, type: :controller do
         expect(found.size).to eq(97)
       end
 
-      it "seeks for exact match" do
+      it "matches with precision" do
         get :seek, params: {search: "Yukihiro Matsumoto"}
         expect(found).to eq([{"Name"=>"Ruby", "Type"=>"Imperative, Interpreted, Metaprogramming, Object-oriented class-based, Reflective, Scripting, Interactive mode", "Designed by"=>"Yukihiro Matsumoto"}])
+      end
+
+      it "seeks the exact match" do
+        get :seek, params: {search: "Lisp Common"}
+        expect(found_names).to eq(["Common Lisp"])
       end
 
       it "seeks in different fields" do

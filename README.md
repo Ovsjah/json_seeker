@@ -1,24 +1,52 @@
-# README
+# JSON Seeker test-app for Teamvoy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting started
 
-Things you may want to cover:
+To get started with the app, install rails first:
 
-* Ruby version
+```
+$ gem install rails
+$ rails -v
+```
 
-* System dependencies
+Then create a new rails app:
 
-* Configuration
+```
+$ rails new json_seeker
+```
 
-* Database creation
+Add rspec support to the Gemfile. Place gem 'rspec-rails', gem 'rails-controller-testing' into the Test group. Then install the needed gems.
 
-* Database initialization
+```
+$ bundle install
+$ rspec -v
+```
 
-* How to run the test suite
+Unpack the archive and move the files to these directories:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ mv routes.rb ~/json_seeker/config/
+$ mv json_seeker_controller.rb ~/json_seeker/app/controllers/
+$ mv json_seeker_controller_spec.rb ~/json_seeker/spec/controllers/
+$ mv seek.html.erb ~/json_seeker/app/views/json_seeker/
+$ mv _seeker.html.erb ~/json_seeker/app/views/json_seeker/
+$ mv _result_table.html.erb ~/json_seeker/app/views/json_seeker/
+$ mv json_seeker.scss ~/json_seeker/app/assets/stylesheets/
+```
 
-* Deployment instructions
+Download the search data from https://gist.github.com/g3d/d0b84a045dd6900ca4cb, unpack it and move to:
 
-* ...
+```
+$ mv data.json ~/json_seeker/public/
+```
+Run the specs to make sure everything works fine
+
+```
+$ rspec -fdoc
+```
+
+Finally start the rails server and visit http://localhost:3000/
+
+```
+$ rails s
+```
