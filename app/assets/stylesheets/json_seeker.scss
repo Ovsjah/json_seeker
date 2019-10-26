@@ -1,0 +1,39 @@
+// Place all the styles related to the JsonSeeker controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1, th {
+  color: red;
+}
+
+div {
+  text-align: center;
+  input {
+    cursor: pointer;
+    &[type='text'] {
+      display: inline-block;
+      width: 50%;
+      letter-spacing: 2px;
+      font-weight: bold;
+      word-spacing: 5px;
+      padding: 5px 5px;
+      color: gray;
+      border: 1px solid pink;
+      background-color: lightgray;
+    }
+    &[type='submit'] {
+      height: 29px;
+      color: red;
+    }
+  }
+}
+
+table {
+  border: 5px solid gray;
+  border-collapse: collapse;
+  width: 100%;
+  th, td {
+    padding: 15px;
+    border: solid 2px gray;
+  }
+}

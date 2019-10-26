@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <% @found.first.keys.each do |key| %>
+        <th><%= key %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <% @found.each do |hsh| %>
+    <tbody>
+      <tr>
+        <% hsh.values.each do |value| %>
+          <td><%= value %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

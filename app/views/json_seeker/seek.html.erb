@@ -1,0 +1,12 @@
+<div>
+  <h1>Programming Info Seeker</h1>
+  <%= render 'seeker' %>
+</div>
+<hr>
+<div>
+  <% if @found.present? %>
+    <%= render 'result_table' %>
+  <% else %>
+    <p>No results found</p>
+  <% end %>
+</div>
