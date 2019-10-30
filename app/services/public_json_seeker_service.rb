@@ -1,12 +1,23 @@
 # frozen_string_literal: true
 
-# Methods for reading from public files and searching in them
-module Searchable
-  include ActiveSupport::Concern
+# Makes the json data searchable
+class PublicJsonSeekerService
+  attr_reader :result
+
+  def initialize(file_name)
+    @file = file_name
+  end
+
+  # returns an arr of hashes that matches the query or all hashes
+  def seek(query = nil)
+    @result = (@query = query) ? parsed.select { |hsh| present_in?(hsh.values) } : parsed
+  end
+
+  private
 
   # parses json from public file
-  def search_in(file_name)
-    JSON.parse(File.read("#{Rails.root}/public/#{file_name}"))
+  def parsed
+    JSON.parse(File.read("#{Rails.root}/public/#{@file}"))
   end
 
   # returns boolean if the search request is present in modified hash values
@@ -27,6 +38,6 @@ module Searchable
   end
 
   def formatted_search_params
-    params[:search].downcase.split
+    @query.downcase.split
   end
 end

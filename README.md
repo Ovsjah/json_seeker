@@ -27,10 +27,13 @@ Unpack the archive and move the files to these directories:
 
 ```
 $ mv routes.rb ~/json_seeker/config/
+$ mv spring.rb ~/json_seeker/config/spring.rb
+$ mkdir ~/json_seeker/app/services && mv public_json_seeker_service.rb ~/json_seeker/app/services/
+$ mkdir ~/json_seeker/spec/services && mv public_json_seeker_service_spec.rb ~/json_seeker/spec/services
 $ mv json_seeker_controller.rb ~/json_seeker/app/controllers/
-$ mv searchable.rb ~/json_seeker/app/controllers/concerns/
 $ mv json_seeker_controller_spec.rb ~/json_seeker/spec/controllers/
-$ mv seek.html.erb _seeker.html.erb _result_table.html.erb ~/json_seeker/app/views/json_seeker/
+$ mkdir ~/json_seeker/app/views/json_seeker &&
+  mv seek.html.erb _seeker.html.erb _result_table.html.erb ~/json_seeker/app/views/json_seeker/
 $ mv json_seeker.scss ~/json_seeker/app/assets/stylesheets/
 ```
 
