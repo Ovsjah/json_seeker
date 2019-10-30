@@ -11,8 +11,8 @@ module Searchable
 
   # returns boolean if the search request is present in modified hash values
   def present_in?(values)
-    params[:search].downcase.split.all? do |seek_for|
-      search_str = values.join(' ').downcase
+    formatted_search_params.all? do |seek_for|
+      search_str = format(values)
 
       if seek_for.start_with?('-') # supports negative search
         search_str.exclude? seek_for[1..-1]
@@ -20,5 +20,13 @@ module Searchable
         search_str.include? seek_for
       end
     end
+  end
+
+  def format(values)
+    values.join(' ').downcase
+  end
+
+  def formatted_search_params
+    params[:search].downcase.split
   end
 end
